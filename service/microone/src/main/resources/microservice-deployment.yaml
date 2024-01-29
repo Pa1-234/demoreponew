@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: microone-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: microone
+  template:
+    metadata:
+      labels:
+        app: microone
+    spec:
+      containers:
+      - name: microone
+        image: pavankumarsangisetti/microone:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8080

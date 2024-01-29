@@ -1,0 +1,22 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pdp-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pdp
+  template:
+    metadata:
+      labels:
+        app: pdp
+    spec:
+      containers:
+        - name: pdp
+          image: pavankumarsangisetti/pdprepo:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 9004
+
